@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="result">
+
+    </div>
+
+    <script>
+        // basic
+        // ex1
+        function crystalGazer(numChild, partner, location, job){
+            switch(numChild){
+                case 0:
+                    return `You will be a ${job} in ${location} and married to ${partner} with no Children.`;
+                case 1:
+                    return `You will be a ${job} in ${location} and married to ${partner} with ${numChild} Child.`;
+                default:
+                    return `You will be a ${job} in ${location} and married to ${partner} with ${numChild} Children.`;
+            }
+        }
+        console.log(crystalGazer(2,"emma", "vienna", "WebDev"));
+
+        // ex2
+        function ageCalculator(born, current){
+            let age = current - born;
+            return `You are either ${age-1} or ${age}`;
+        }
+        console.log(ageCalculator(1992,2022));
+
+        //ex3
+        function ageCalcImp(born){
+            let current = new Date;
+            let age = current.getFullYear() - born;
+            return `You are either ${age-1} or ${age}`;
+        }
+        console.log(ageCalcImp(1992));
+
+        //ex4
+        function degToRad(deg){
+            let result = deg * (Math.PI/180);
+            return result;
+        }
+        console.log(degToRad(120));
+
+        // ex5
+        function boxSize(w, h, d){
+            let area = w * h;
+            let volume = w * h * d;
+            let result = [area, volume];
+            return result;
+        }
+        console.log(`The area of the box is: ${boxSize(5,5,5)[0]}`);
+        console.log(`The volume of the box is: ${boxSize(5,5,5)[1]}`);
+
+        // inter
+        // ex1
+        let upper = (function(){
+            let str = "i am a web developer";
+            let result = str.charAt(0).toUpperCase() + str.slice(1);
+            console.log(result);
+        }());
+
+        function toUpper(str){
+            let result = str.charAt(0).toUpperCase() + str.slice(1);
+            return result;
+        }
+        console.log(toUpper("this is a test"));
+
+        //ex2
+        function avgGrade(x, y, z){
+            Object.keys(arguments).forEach(function(key){
+                console.log(key);
+                console.log(arguments[key]);
+                // if(Number.isInteger(arguments[key]) == false){return console.log("No number was given");}
+                // else{console.log(arguments[key]);}
+            });
+        };
+
+        avgGrade(1,2,3);
+    </script>
+</body>
+</html>
